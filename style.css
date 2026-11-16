@@ -1,0 +1,66 @@
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --accent: #2563eb;
+  --error: #dc2626;
+}
+
+* { box-sizing: border-box; }
+
+/* чтобы атрибут hidden работал даже у элементов со своим display */
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  font-family: system-ui, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.header, .footer { text-align: center; padding: 24px 16px; }
+.header h1 { margin: 0 0 8px; }
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 16px 32px; }
+
+.status { text-align: center; font-size: 18px; }
+.status.error { color: var(--error); font-weight: 600; }
+
+.retry-btn {
+  display: block;
+  margin: 12px auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.retry-btn:hover { opacity: 0.9; }
+
+/* Grid: карточки сами переносятся на новую строку — это и есть адаптивность */
+.user-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.card h2 { margin: 0 0 8px; font-size: 18px; }
+.card p { margin: 8px 0; }
+.card a { display: block; color: var(--accent); text-decoration: none; }
+.card a:hover { text-decoration: underline; }
+
+@media (max-width: 480px) {
+  .header h1 { font-size: 22px; }
+}
